@@ -53,52 +53,13 @@
     <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
 
     <div class="register">
-    <? if(isset($_SESSION['isLoginId'])){ ?> 
-        <a href="logOut.php">로그아웃 </a>
-        
-    <? }else{ ?>
         <a href="join.php">register</a>
-        <!-- <a href="login.php">로그인</a> -->
-    
-    <? } ?> 
     </div>
     
     <p class="mt-5 mb-3 text-muted">&copy; made by Dev_hoon</p>
   </form>
 </main>
  
-
-
-
-
-<? if(isset($_SESSION['isLoginId'])){ ?>
-
-<form action="memoProc.php" method="post">
-    <textarea name="memo" placeholder="메모를 입력해주세요." style="width:500px; height:200px;"></textarea>
-    <br>
-    <button type="submit">저장</button> 
-</form>
-
-<table border=1>
-        <tr>
-            <td> 아이디
-            <td> 메모 
-            <td> 등록일 
-        <?
-            $query = "select * from memo where user_id=? order by idx desc ";
-            $list = $db->query($query, $_SESSION['isLoginId'])->fetchAll(); 
-            foreach($list as $data){ 
-        ?>
-        <tr>
-            <td> <?=$data['user_id']?>
-            <td> <?=nl2br($data['memo'])?>
-            <td> <?=$data['regdate']?> 
-        <? } ?>
-
-</table>
-
-<? } ?> 
-
 </body>
 </html>
 

@@ -27,7 +27,7 @@
     $_SESSION['isLoginId'] = $user_id; 
     
     //위의 조건에 해당이 안된다면 로그인 후 index.php로 이동
-    Header("Location: index.php"); 
+    Header("Location: memo.php"); 
     
 ?>
 <!-- <script>

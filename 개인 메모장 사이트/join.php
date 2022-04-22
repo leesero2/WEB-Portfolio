@@ -26,7 +26,7 @@
         id : <input type="text" name="user_id" placeholder="아이디">
   <div>
   <div>
-        pw : <input type="password" name="pwd" placeholder="pw">
+        pw : <input type="password" name="user_pwd" placeholder="pw">
   <div>
   <div>
         이름 : <input type="text" name="name" id="name" placeholder="이름">
