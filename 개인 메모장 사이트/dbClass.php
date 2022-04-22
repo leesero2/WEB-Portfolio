@@ -130,9 +130,9 @@ class db {
 
 }
     $dbhost = 'localhost';
-    $dbuser = 'korea';
-    $dbpass = 'korea123';
-    $dbname = 'korea';
+    $dbuser = 'purple';
+    $dbpass = 'purple123';
+    $dbname = 'Memo';
 
     $db = new db($dbhost, $dbuser, $dbpass, $dbname);    
 

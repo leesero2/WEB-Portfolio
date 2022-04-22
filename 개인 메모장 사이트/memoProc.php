@@ -15,7 +15,7 @@
     $data[] = $_POST['memo'];
     $data[] = date("Y-m-d H:i:s"); 
 
-    $query = "insert into uni_memo(user_id, memo, regdate) values(?,?,?) ";
+    $query = "insert into memo(user_id, memo, regdate) values(?,?,?) ";
     $db->query($query,$data); 
 
     Header("Location: index.php"); 
