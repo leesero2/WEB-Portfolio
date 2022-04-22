@@ -8,7 +8,7 @@
 <body>
     <form action="loginProc.php" method="post" > 
         <input type="text" name="user_id" placeholder="아이디">  
-        <input type="password" name="pwd" placeholder="비밀번호">  
+        <input type="password" name="user_pwd" placeholder="비밀번호">  
         <button type="submit" >로그인</button>
 
         

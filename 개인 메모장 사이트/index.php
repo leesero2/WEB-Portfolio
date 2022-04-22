@@ -30,17 +30,18 @@
    
 
 <!-- 메모장 ui부분 -->
+
 <main class="form-signin">
-  <form>
+<form action="loginProc.php" method="post"> 
     <img class="mb-4" src="img/icon.png" alt="" width="172" height="172">
     <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
     <div class="form-floating">
-      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+      <input type="email" class="form-control"  name="user_id" id="floatingInput" placeholder="name@example.com">
       <label for="floatingInput">Email address</label>
     </div>
     <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <input type="password" class="form-control" name="user_pwd" id="floatingPassword" placeholder="Password">
       <label for="floatingPassword">Password</label>
     </div>
     
@@ -65,7 +66,7 @@
     <p class="mt-5 mb-3 text-muted">&copy; made by Dev_hoon</p>
   </form>
 </main>
-
+ 
 
 
 
