@@ -10,19 +10,25 @@
     $data = $db->query($q,$user_id)->fetchArray();  //$user_id에 값을 대입함
 
     if(!$data['idx']){
-        echo "존재하지 않는 회원입니다.";
-        exit; 
+        ?>
+        <script>
+            alert('존재하지 않는 회원입니다.');
+            location.href='index.php';
+        </script>
+        <?php 
     }
-
 
     $q = 'select * from member where user_pwd=? ';
     $tmp = $db->query($q, $user_pwd)->fetchArray(); 
  
     if($data['user_pwd']!=$tmp['user_pwd']){
-        echo "로그인정보가 잘못되었습니다.";
-        exit; 
+        ?>
+        <script>
+            alert('로그인정보가 잘못되었습니다.');
+            location.href='index.php';
+        </script>
+        <?php
     }
-
 
     $_SESSION['isLoginId'] = $user_id; 
     
@@ -30,6 +36,3 @@
     Header("Location: memo.php"); 
     
 ?>
-<!-- <script>
-    location.href='index.php';
-</script> -->
