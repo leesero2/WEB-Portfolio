@@ -51,13 +51,13 @@
     </div>
     <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
 
-    <div>
+    <div class="register">
     <? if(isset($_SESSION['isLoginId'])){ ?> 
         <a href="logOut.php">로그아웃 </a>
         
     <? }else{ ?>
-        <a href="join.php">회원가입</a>
-        <a href="login.php">로그인</a>
+        <a href="join.php">register</a>
+        <!-- <a href="login.php">로그인</a> -->
     
     <? } ?> 
     </div>
