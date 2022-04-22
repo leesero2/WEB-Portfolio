@@ -1,8 +1,7 @@
 <?
     session_start(); 
-
     unset($_SESSION['isLoginId']);
-    ?>
-    <script>
+?>
+<script>
     location.href='index.php';
 </script>
