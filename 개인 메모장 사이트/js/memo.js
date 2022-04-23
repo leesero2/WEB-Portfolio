@@ -66,3 +66,14 @@ function checkPW(){
     } 
     return true;
 }
+
+function checkid(){
+    let user_id = documemt.getElementById("uid").value;
+    if(user_id){
+        url = "checkid.php?user_id="+user_id;
+        window.open(url,"chkid","width=400,height=200");
+
+    }else{
+        alert("아이디를 입력하세요");
+    }
+}
