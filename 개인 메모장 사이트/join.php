@@ -78,15 +78,15 @@
 
             <div class="col-12">
               <label for="text" class="form-label">ID</label>
-              <input type="text" class="form-control" id="text" name="user_id" placeholder="user_ID">
+              <input type="text" class="form-control" id="text" name="user_id" placeholder="user_ID" required>
               <div class="invalid-feedback">
                 Please enter a valid email address for shipping updates.
               </div>
             </div>
-
+            
             <div class="col-6">
               <label for="email" class="form-label">Password</label>
-              <input type="password" class="form-control" id="email" name="user_pwd" placeholder="PW">
+              <input type="password" class="form-control" id="pw1" name="user_pwd" placeholder="PW" required>
               <div class="invalid-feedback">
                 Please enter a valid email address for shipping updates.
               </div>
@@ -94,7 +94,7 @@
 
             <div class="col-6">
               <label for="email" class="form-label">Password check</label>
-              <input type="password" class="form-control" id="email" placeholder="PW">
+              <input type="password" class="form-control" id="pw2" name="user_pwd2" placeholder="PW" required>
               <div class="invalid-feedback">
                 Please enter a valid email address for shipping updates.
               </div>
@@ -102,8 +102,9 @@
           </div>
 
           <hr class="my-4">
-
+        <div class = "register-button">
           <button class="w-100 btn btn-primary btn-lg" type="submit">Continue</button>
+    </div>
         </form>
       </div>
     </div>
