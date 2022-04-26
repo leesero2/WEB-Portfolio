@@ -57,6 +57,11 @@
     </div>
     
     <p class="mt-5 mb-3 text-muted">&copy; made by Dev_hoon</p>
+    <ul class="list-inline">
+      <li class="list-inline-item"><a href="https://github.com/leesero2">github</a></li>
+      <li class="list-inline-item"><a href="mailto:huny10000@naver.com">Email</a></li>
+      <li class="list-inline-item"><a href="#">contact</a></li>
+    </ul>
   </form>
 </main>
  

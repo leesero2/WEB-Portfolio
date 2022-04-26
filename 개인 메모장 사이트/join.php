@@ -9,13 +9,14 @@
     <!-- Bootstrap core CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script>
+        //아이디 중복체크 함수
         function checkid(){    
-            var userid = document.getElementById("uid").value;
-            if(userid)  //userid로 받음
+            var userid = document.getElementById("uid").value; //userid 변수에 uid 값을 대입
+            if(userid)  //내용이 있다면(참이라면)
             {
                 url = "checkid.php?userid="+userid;
-                window.open(url,"chkid","width=400,height=200");
-            } else {
+                window.open(url,"chkid","width=400,height=200"); //윈도우 창 뜸
+            } else { //빈값일 경우
                 alert("아이디를 입력하세요.");
             }
         }
@@ -34,21 +35,25 @@
 
         //중복검사 결정 함수
         function decide(){
-
-            document.getElementById("decide_id").value = document.getElementById("uid").value
-            document.getElementById("uid").disabled = true
-            document.getElementById("join_button").disabled = false
-            document.getElementById("check_button").value = "다른 ID로 변경"
-            document.getElementById("check_button").setAttribute("onclick", "change()")
+            document.getElementById("decide").innerHTML = "";
+            document.getElementById("decide_id").value = document.getElementById("uid").value;
+            document.getElementById("uid").disabled = true;
+            document.getElementById("join_button").disabled = false;
+            document.getElementById("check_button").setAttribute("onclick", "change()");
         }
         //중복함수 교환함수
         function change(){
-            
+            document.getElementById("decide").innerHTML = "<span style='color:red;'>ID 중복 여부를 확인해주세요.</span>"
             document.getElementById("uid").disabled = false
-            document.getElementById("uid").value = ""
+            uid1 = document.getElementById("uid").value = ""
             document.getElementById("join_button").disabled = true
-            document.getElementById("check_button").value = "ID 중복 검사"
             document.getElementById("check_button").setAttribute("onclick", "checkid()")
+            uid1.autofocus;
+        }
+        
+        //회원가입 버튼을 누르면 뜨는 알림
+        function join(){
+            alert("회원가입이 완료되었습니다.");
         }
 
 
@@ -66,10 +71,9 @@
     </div>
     <div class="row g-5">
       <div class="col-md col-lg">
-        <!-- <h4 class="mb-3">Billing address</h4> -->
         <form class="needs-validation" novalidate>
           <div class="row g-3">
-          
+
           <div class="col-6">
               <label for="text" class="form-label">ID</label>
               <input type="text" class="form-control" id="uid" name="user_id" placeholder="user_ID" required>
@@ -78,47 +82,36 @@
                 Please enter a valid email address for shipping updates.
               </div>
             </div>
-            
-        <div class = "checkID">
-            <div class="col-2">
-              <!-- <label for="text" class="form-label" type=""></label> -->
-              <button class="w-100 btn btn-primary btn" id="check_button" onclick="checkid();">중복확인</button>
-              <!-- <div class="invalid-feedback">
-                Please enter a valid ID.
-              </div> -->
+
+            <div class="col-6">
+              <label for="text" class="form-label"></label>
+              <span id="decide" style='color:red;'>ID 중복 여부를 확인해주세요.</span>
             </div>
-        </div>
+            
+            <div class = "checkID">
+                <div class="col-2">
+                <button class="w-100 btn btn-primary btn" id="check_button" onclick="checkid();">중복확인</button>
+                </div>
+            </div>
 
             <div class="col-6">
               <label for="email" class="form-label">Password</label>
               <input type="password" class="form-control" id="pw1" name="user_pwd" placeholder="PW" required>
-              <div class="invalid-feedback">
-                Please enter a valid password.
-              </div>
             </div>
 
             <div class="col-6">
               <label for="email" class="form-label">Password check</label>
               <input type="password" class="form-control" id="pw2" name="user_pwd2" placeholder="PW" required>
-              <div class="invalid-feedback">
-                Please enter a valid password check.
-              </div>
             </div>
 
             <div class="col-sm-6">
               <label for="lastName" class="form-label">Last name(성)</label>
               <input type="text" class="form-control" name = "LastN" id="lastName" placeholder=""  required>
-              <div class="invalid-feedback">
-                Valid last name is required.
-              </div>
             </div>
 
             <div class="col-sm-6">
               <label for="firstName" class="form-label">First name(이름)</label>
               <input type="text" class="form-control" name = "FirstN" id="firstName" placeholder=""  required>
-              <div class="invalid-feedback">
-                Valid first name is required.
-              </div>
             </div>
 
             <div class="col-4">
@@ -126,9 +119,6 @@
               <div class="input-group has-validation">
                 <input type="text" class="form-control" id="username" name="email" placeholder="email" required>
                 <span class="input-group-text">@</span>
-              <div class="invalid-feedback">
-                  Your email is required.
-                </div>
               </div>
             </div>
 
@@ -140,9 +130,6 @@
                 <option value="gmail.com">gmail.com</option>
                 <option value="daum.net">daum.net</option>
               </select>
-              <div class="invalid-feedback">
-                Please select a email.
-              </div>
             </div>
             
             
@@ -150,7 +137,7 @@
 
           <hr class="my-4">
         <div class = "register-button">
-          <button class="w-100 btn btn-primary btn-lg" id="join_button" type="submit">Continue</button>
+          <button class="w-100 btn btn-primary btn-lg" id="join_button" type="submit" onclick="join();">Continue</button>
         </div>
         </form>
       </div>
@@ -161,30 +148,11 @@
     <p class="mb-1">&copy; Dev_hoon</p>
     <ul class="list-inline">
       <li class="list-inline-item"><a href="https://github.com/leesero2">github</a></li>
-      <li class="list-inline-item"><a href="#">Email</a></li>
+      <li class="list-inline-item"><a href="mailto:huny10000@naver.com">Email</a></li>
       <li class="list-inline-item"><a href="#">contact</a></li>
     </ul>
   </footer>
 </div>
-  
-
-
-  <!-- <form action="joinProc.php" method="post" onsubmit="return chkFrm();">
-  <div>
-        id : <input type="text" name="user_id" placeholder="아이디">
-  <div>
-  <div>
-        pw : <input type="password" name="user_pwd" placeholder="pw">
-  <div>
-  <div>
-        이름 : <input type="text" name="name" id="name" placeholder="이름">
-  <div>
-  <div>
-        이메일 : <input type="text" name="email" placeholder="이메일">
-  <div>    
-        <button type="submit">회원가입</button>
-</form>  -->
-
 </body>
 </html>
 
