@@ -6,7 +6,7 @@
 
     $email = $_POST['email'] . '@' . $_POST['SO'];
 
-    $data = array($_POST['user_id'],$_POST['user_pwd'],$Name,$email); 
+    $data = array($_POST['decide_id'],$_POST['user_pwd'],$Name,$email); 
 
     $data[] = date("Y-m-d H:i:s");
     $data[] = $_SERVER['REMOTE_ADDR']; 

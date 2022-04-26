@@ -9,9 +9,52 @@
     <!-- Bootstrap core CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script>
+        function checkid(){    
+            var userid = document.getElementById("uid").value;
+            if(userid)  //userid로 받음
+            {
+                url = "checkid.php?userid="+userid;
+                window.open(url,"chkid","width=400,height=200");
+            } else {
+                alert("아이디를 입력하세요.");
+            }
+        }
+
+        //비밀번호 일치 체크 함수
+        function checkPW(){
+            let password1 = document.getElementById("pw1").value;
+            let password2 = document.getElementById("pw2").value;
+
+            if(password1 != password2){
+                alert("비밀번호가 일치하지 않습니다");
+                return false;
+            } 
+            return true;
+        }
+
+        //중복검사 결정 함수
+        function decide(){
+
+            document.getElementById("decide_id").value = document.getElementById("uid").value
+            document.getElementById("uid").disabled = true
+            document.getElementById("join_button").disabled = false
+            document.getElementById("check_button").value = "다른 ID로 변경"
+            document.getElementById("check_button").setAttribute("onclick", "change()")
+        }
+        //중복함수 교환함수
+        function change(){
+            
+            document.getElementById("uid").disabled = false
+            document.getElementById("uid").value = ""
+            document.getElementById("join_button").disabled = true
+            document.getElementById("check_button").value = "ID 중복 검사"
+            document.getElementById("check_button").setAttribute("onclick", "checkid()")
+        }
+
+
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="js/memo.js" type="text/javascript"></script>
+    <!-- <script src="js/memo.js"></script> -->
 </head>
 
 <body class="bg-light">
@@ -27,21 +70,24 @@
         <form class="needs-validation" novalidate>
           <div class="row g-3">
           
-          <div class="col-8">
+          <div class="col-6">
               <label for="text" class="form-label">ID</label>
               <input type="text" class="form-control" id="uid" name="user_id" placeholder="user_ID" required>
+              <input type="hidden" name="decide_id" id="decide_id">
               <div class="invalid-feedback">
                 Please enter a valid email address for shipping updates.
               </div>
             </div>
             
-            <div class="col-4">
-              <label for="text" class="form-label" type=""></label>
-              <button class="w-100 btn btn-primary btn" onclick="checkid()">중복확인</button>
+        <div class = "checkID">
+            <div class="col-2">
+              <!-- <label for="text" class="form-label" type=""></label> -->
+              <button class="w-100 btn btn-primary btn" id="check_button" onclick="checkid();">중복확인</button>
               <!-- <div class="invalid-feedback">
                 Please enter a valid ID.
               </div> -->
             </div>
+        </div>
 
             <div class="col-6">
               <label for="email" class="form-label">Password</label>
@@ -104,7 +150,7 @@
 
           <hr class="my-4">
         <div class = "register-button">
-          <button class="w-100 btn btn-primary btn-lg" type="submit">Continue</button>
+          <button class="w-100 btn btn-primary btn-lg" id="join_button" type="submit">Continue</button>
         </div>
         </form>
       </div>
@@ -114,7 +160,7 @@
   <footer class="my-5 pt-5 text-muted text-center text-small">
     <p class="mb-1">&copy; Dev_hoon</p>
     <ul class="list-inline">
-      <li class="list-inline-item"><a href="#">github</a></li>
+      <li class="list-inline-item"><a href="https://github.com/leesero2">github</a></li>
       <li class="list-inline-item"><a href="#">Email</a></li>
       <li class="list-inline-item"><a href="#">contact</a></li>
     </ul>
