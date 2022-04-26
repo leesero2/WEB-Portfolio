@@ -44,17 +44,6 @@ const chkForm = document.querySelector("register_form");
 //     return true;
 // }
 
-// function chkPW(){
-//     if(chkForm.user_pwd.value != chkForm.user_pwd2.value){
-//         alert("비밀번호가 일치하지 않습니다.");
-//         chkForm.user_pwd.focus();
-//         chkForm.user_pwd.select();
-//         return;
-//     }
-//     chkForm.submit();
-
-// }
-
 //비밀번호 일치 체크 함수
 function checkPW(){
     let password1 = document.getElementById("pw1").value;
